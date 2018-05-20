@@ -1,0 +1,10 @@
+﻿1. Develop an application that allows a user to define what golf clubs are in their bag from the following selection:
+     Putter, Lob Wedge, Sand Wedge, Gap Wedge, Pitching Wedge, Irons 9 - 2, 5 Wood, 3 Wood, and Driver.
+2. The user can only carry a max of 13 clubs in their bag.
+3. Once the user has defined their club selection, allow the user to input their average yardage for each club; excluding putter.
+4. Data gathering is complete at this point.
+
+
+1. Prompt the user to input their distance to their desired landing area.
+2. Determine based on the entered distance the club recommendation for the user.
+
