@@ -22,8 +22,24 @@ namespace GolfApplication
             golfBag.Add(club);
         }
 
+        public int CheckGolfClubsAdded()
+        {
+           return golfBag.Count();
+        }
+
+        public List<string> DisplayGolfClubsAdded()
+        {
+            List<string> clubsInBag = new List<string>();
+
+            foreach (var club in golfBag)
+            {
+                clubsInBag.Add(string.Format("You added a {0} to your bag.", club.Translate(club.clubType)));
+            }
+
+            return clubsInBag;
+        }
+
         //TODO Define fields of the GolfBag object.
-        //TODO allow user to add clubs to the golfbag.
         //TODO - make sure number of clubs never exceeds maxNumberOfClubs.
 
     }

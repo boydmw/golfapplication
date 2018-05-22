@@ -15,15 +15,15 @@ namespace GolfApplication
             GolfBag userGolfBag = new GolfBag();
 
             Console.WriteLine("Below are the available clubs:");
-            Console.WriteLine("Enter the corresponding number to add the club to your bag or exit."); //50 is exit for now.
 
-            int clubToAdd = int.Parse(Console.ReadLine());
+            bool addMoreClubs = true;
 
-            if (clubToAdd != 50)
+            while (addMoreClubs)
             {
-                bool addMoreClubs = true;
+                Console.WriteLine("Enter the corresponding number to add the club to your bag or exit.");
+                int clubToAdd = int.Parse(Console.ReadLine());
 
-                while (addMoreClubs)
+                if (clubToAdd != 50) //make sure the user did not enter 50. This is exit for now.
                 {
                     //make sure it is a valid club number. 1-17 only. 
                     if (clubToAdd < 17 && clubToAdd > 0)
@@ -31,25 +31,29 @@ namespace GolfApplication
                         GolfClubs newClub = new GolfClubs();
                         newClub.clubType = newClub.Translate(clubToAdd);
                         userGolfBag.AddClubToGolfBag(newClub);
-                        Console.WriteLine("{0} was added to your bag.",newClub.Translate(newClub.clubType));
+                        Console.WriteLine("{0} was added to your bag.", newClub.Translate(newClub.clubType));
                     }
+                    Console.WriteLine("Enter a correct number.");
 
                 }
+                else if (userGolfBag.CheckGolfClubsAdded() >= 1)
+                {
+                    Console.WriteLine("Some Text. The user decided to stop adding golf clubs.");
+                    addMoreClubs = false;
 
+
+                    foreach (var club in userGolfBag.DisplayGolfClubsAdded())
+                    {
+                        Console.WriteLine(club);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("You did not added any clubs to your bag.");
+                    addMoreClubs = false;
+                }
             }
-            else
-            {
-                Console.WriteLine("You have not added any clubs to your bag.");
-            }
-
-            Console.ReadLine();
-
-            
             //TODO - Display available clubs to the user to select from.
-            //TODO - Store clubs selected into golf bag.
-            
-            
-
         }
     }
 }
